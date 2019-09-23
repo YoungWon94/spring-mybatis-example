@@ -2,16 +2,13 @@ package com.bit.research.controller;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bit.research.service.UserService;
 import com.bit.research.vo.Users;
@@ -71,9 +68,18 @@ public class HomeController {
 	
 	@RequestMapping("/signOut")
 	public String signOut(HttpServletRequest req) {
-		
+		userService.signOutUser(req);
 		
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/read/{userId}")
+	public String readUser(@PathVariable String userId, Model model) {
+		System.out.println(userId);
+//		Users useer = userService.readUser(userId);
+		
+		return "userInfo";
+	}
+	
 	
 }

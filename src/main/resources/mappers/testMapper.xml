@@ -11,7 +11,7 @@
 	</select> 
 
 	<insert id="addUser">
-		insert into users values(#{userid},#{userpw})
+		insert into users values(#{userid},#{userpw},#{comment})
 	</insert>
 	
 	<select id="readUser" resultType="com.bit.research.vo.Users">

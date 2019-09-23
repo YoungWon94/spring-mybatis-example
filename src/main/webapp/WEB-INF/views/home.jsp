@@ -23,6 +23,7 @@
 	</form>
 	
 	
+	
 	<hr/>
 	* listAll
 
@@ -30,11 +31,13 @@
 	<table border=1>
 		<th>아이디</th>
 		<th>비번</th>
+		<th>코멘트</th>
 		<th>상세</th>
 		<c:forEach var="it" items="${test}" varStatus="status">
 		<tr>
 			<td>${it.userid}</td>
 			<td>${it.userpw}</td>
+			<td>${it.comment}</td>
 			<td><a href="read/${it.userid }">보기</a></td>
 		</tr>
 		</c:forEach>
